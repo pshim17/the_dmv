@@ -20,4 +20,8 @@ class Facility
   def collected_fees
     0
   end
+
+  def register_vehicle(vehicle)
+    @registered_vehicles << vehicle
+  end
 end
