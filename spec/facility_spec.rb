@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 RSpec.describe Facility do
   before(:each) do
@@ -23,5 +24,17 @@ RSpec.describe Facility do
       @facility.add_service('Vehicle Registration')
       expect(@facility.services).to eq(['New Drivers License', 'Renew Drivers License', 'Vehicle Registration'])
     end
+  end 
+
+  describe "#registered vehicles" do
+    it 'displays registered vehicles' do
+        expect(@facility.registered_vehicles).to eq([])
+    end
   end
+
+  describe "#collected_fees" do
+  it 'displays collected fees' do
+      expect(@facility.collected_fees).to eq(0)
+  end
+end
 end

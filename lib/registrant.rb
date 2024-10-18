@@ -6,6 +6,7 @@ class Registrant
         @age = age
         @permit = permit
         @license_data = license_data
+        @registered_vehicles = []
     end
     
     def permit?
