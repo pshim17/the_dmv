@@ -20,7 +20,11 @@ class Facility
   end
 
   def collected_fees
-    0
+    if registered_vehicles.size == 0
+      0
+    elsif registered_vehicles.size > 0
+      return registered_vehicles.size * 100
+    end
   end
 
   def register_vehicle(vehicle)
@@ -30,6 +34,8 @@ class Facility
 
     if (vehicle.plate_type == nil && vehicle.antique? == false && vehicle.electric_vehicle? == false )
       vehicle.plate_type = :regular
+    elsif (vehicle.plate_type == nil && vehicle.antique? == true && vehicle.electric_vehicle? == false)
+      vehicle.plate_type = :antique
     end
     @registered_vehicles << vehicle
   end

@@ -41,10 +41,21 @@ RSpec.describe Facility do
       expect(@cruz.registration_date).to eq(nil)
       expect(@facility_1.collected_fees).to eq(0)
 
+      #cruz
       @facility_1.register_vehicle(@cruz)
 
       expect(@cruz.registration_date).to eq(Date.today)
       expect(@cruz.plate_type).to eq(:regular)
+      
+      @facility_1.registered_vehicles
+
+      expect(@facility_1.collected_fees).to eq(100)
+
+      #camaro
+      @facility_1.register_vehicle(@camaro)
+
+      expect(@camaro.registration_date).to eq(Date.today)
+      expect(@camaro.plate_type).to eq(:antique)
     end
   end
 
