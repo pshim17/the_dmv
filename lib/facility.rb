@@ -1,3 +1,5 @@
+require 'date'
+
 class Facility
   attr_reader :name, :address, :phone, :services, :registered_vehicles
 
@@ -22,6 +24,13 @@ class Facility
   end
 
   def register_vehicle(vehicle)
+    if (vehicle.registration_date == nil)
+      vehicle.registration_date = Date.today
+    end 
+
+    if (vehicle.plate_type == nil && vehicle.antique? == false && vehicle.electric_vehicle? == false )
+      vehicle.plate_type = :regular
+    end
     @registered_vehicles << vehicle
   end
 end
