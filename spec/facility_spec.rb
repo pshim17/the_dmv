@@ -72,6 +72,7 @@ RSpec.describe Facility do
     end
   end
 
+  # Written Test
   describe '#administer_written_test' do
     it 'can administer a written test' do
       #registrant_1
@@ -98,6 +99,24 @@ RSpec.describe Facility do
       @registrant_3.earn_permit
       expect(@facility_1.administer_written_test(@registrant_3)).to eq(false)
       expect(@registrant_3.license_data[:written]).to eq(false)
+    end
+  end
+
+  # Road Test
+  describe '#administer_road_test' do
+    it 'can administer a road test' do
+      expect(@facility_1.administer_road_test(@registrant_3)).to eq(false)
+      @registrant_3.earn_permit
+      expect(@facility_1.administer_road_test(@registrant_3)).to eq(false)
+      expect(@registrant_3.license_data[:written]).to eq(false)
+      
+      expect(@facility_1.administer_road_test(@registrant_1)).to eq(false)
+      @facility_1.add_service('Road Test')
+      expect(@facility_1.administer_road_test(@registrant_1)).to eq(true)
+      expect(@registrant_1.license_data[:license]).to eq(true)
+
+      expect(@facility_1.administer_road_test(@registrant_2)).to eq(true)
+      expect(@registrant_2.license_data[:license]).to eq(true)
     end
   end
 end 
