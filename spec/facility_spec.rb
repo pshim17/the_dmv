@@ -66,16 +66,4 @@ RSpec.describe Facility do
       expect(@facility_2.register_vehicle(@bolt)).to eq(nil)
     end
   end
-
-  # describe "#registered vehicles" do
-  #   it 'can display registered vehicles' do
-  #       expect(@facility_1.registered_vehicles).to eq([])
-  #   end
-  # end
-
-  # describe "#collected_fees" do
-  #   it 'can display collected fees' do
-  #     expect(@facility_1.collected_fees).to eq(0)
-  #   end
-  # end
 end 
