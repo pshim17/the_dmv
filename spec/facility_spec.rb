@@ -118,5 +118,22 @@ RSpec.describe Facility do
       expect(@facility_1.administer_road_test(@registrant_2)).to eq(true)
       expect(@registrant_2.license_data[:license]).to eq(true)
     end
+  end  
+
+  # Renew License
+  describe '#renew_drivers_license' do
+  it 'can renew drivers license' do
+    expect(@facility_1.renew_drivers_license(@registrant_1)).to eq(false)
+    @facility_1.add_service("Renew License")
+    expect(@facility_1.renew_drivers_license(@registrant_1)).to eq(true)
+    expect(@registrant_1.license_data[:renewed]).to eq(true)
+
+    expect(@facility_1.renew_drivers_license(@registrant_3)).to eq(false)
+    expect(@registrant_3.license_data[:renewed]).to eq(false)
+
+    expect(@facility_1.renew_drivers_license(@registrant_2)).to eq(true)
+    expect(@registrant_2.license_data[:renewed]).to eq(true)
   end
+end  
+
 end 
