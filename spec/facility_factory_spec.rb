@@ -8,7 +8,7 @@ RSpec.describe Facility do
         @mo_facilities = DmvDataService.new.mo_dmv_office_locations
     end
 
-    describe 'can created Facility objects from multiple data sources ' do
+    describe 'can create Facility objects from multiple data sources ' do
         it 'can import CO offices' do
             @factory.create_facilities(@co_facilities)
             expect(@factory).to be_an_instance_of(FacilityFactory)
