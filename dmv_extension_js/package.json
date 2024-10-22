@@ -1,0 +1,15 @@
+{
+  "name": "the_dmv_extension",
+  "version": "1.0.0",
+  "description": "Practice program for building part of an OOP application for the DMV in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Turing School",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^10.7.3"
+  }
+}
